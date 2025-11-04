@@ -3,6 +3,7 @@ package com.restaurant.service;
 import com.restaurant.DTO.UserDTO;
 import com.restaurant.model.User;
 import com.restaurant.repository.UserRepository;
+import com.restaurant.security.JwtTokenProvider;
 import jakarta.transaction.Transactional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
