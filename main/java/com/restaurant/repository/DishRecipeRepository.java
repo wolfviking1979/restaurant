@@ -1,8 +1,8 @@
 package com.restaurant.repository;
 
-import com.restaurant.model.Dish;
-import com.restaurant.model.DishRecipe;
-import com.restaurant.model.Ingredient;
+import com.restaurant.entity.Dish;
+import com.restaurant.entity.DishRecipe;
+import com.restaurant.entity.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

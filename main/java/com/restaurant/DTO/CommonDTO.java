@@ -4,11 +4,13 @@ import java.util.List;
 
 public class CommonDTO {
 
-    // Базовый DTO для ответов
     public static class ApiResponse<T> {
         private boolean success;
         private String message;
         private T data;
+
+        // Конструкторы
+        public ApiResponse() {}
 
         public ApiResponse(boolean success, String message, T data) {
             this.success = success;
@@ -16,7 +18,7 @@ public class CommonDTO {
             this.data = data;
         }
 
-        // Статические методы для удобства
+        // Статические фабричные методы
         public static <T> ApiResponse<T> success(T data) {
             return new ApiResponse<>(true, "Success", data);
         }
@@ -29,21 +31,44 @@ public class CommonDTO {
             return new ApiResponse<>(false, message, null);
         }
 
+        // ДОБАВЛЕН МЕТОД ДЛЯ ОШИБОК С ДАННЫМИ
+        public static <T> ApiResponse<T> error(String message, T data) {
+            return new ApiResponse<>(false, message, data);
+        }
+
         // Геттеры и сеттеры
-        public boolean isSuccess() { return success; }
-        public void setSuccess(boolean success) { this.success = success; }
-        public String getMessage() { return message; }
-        public void setMessage(String message) { this.message = message; }
-        public T getData() { return data; }
-        public void setData(T data) { this.data = data; }
+        public boolean isSuccess() {
+            return success;
+        }
+
+        public void setSuccess(boolean success) {
+            this.success = success;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
     }
 
-    // DTO для пагинации
     public static class PageResponse<T> {
         private List<T> content;
         private int currentPage;
         private int totalPages;
         private long totalElements;
+
+        public PageResponse() {}
 
         public PageResponse(List<T> content, int currentPage, int totalPages, long totalElements) {
             this.content = content;

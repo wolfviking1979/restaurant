@@ -1,6 +1,6 @@
 package com.restaurant.repository;
 
-import com.restaurant.model.RestaurantTable;
+import com.restaurant.entity.RestaurantTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

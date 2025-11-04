@@ -1,6 +1,6 @@
 package com.restaurant.security;
 
-import com.restaurant.model.User;
+import com.restaurant.entity.User;
 import com.restaurant.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.security.core.userdetails.UserDetails;

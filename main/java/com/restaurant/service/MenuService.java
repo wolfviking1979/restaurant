@@ -1,8 +1,8 @@
 package com.restaurant.service;
 
 import com.restaurant.DTO.MenuDTO;
-import com.restaurant.model.Dish;
-import com.restaurant.model.MenuCategory;
+import com.restaurant.entity.Dish;
+import com.restaurant.entity.MenuCategory;
 import com.restaurant.repository.DishRepository;
 import com.restaurant.repository.MenuCategoryRepository;
 import jakarta.transaction.Transactional;

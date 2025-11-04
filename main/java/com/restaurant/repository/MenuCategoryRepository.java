@@ -1,6 +1,6 @@
 package com.restaurant.repository;
 
-import com.restaurant.model.MenuCategory;
+import com.restaurant.entity.MenuCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

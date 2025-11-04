@@ -1,7 +1,7 @@
 package com.restaurant.service;
 
 import com.restaurant.DTO.UserDTO;
-import com.restaurant.model.User;
+import com.restaurant.entity.User;
 import com.restaurant.repository.UserRepository;
 import com.restaurant.security.JwtTokenProvider;
 import jakarta.transaction.Transactional;
@@ -42,12 +42,13 @@ public class AuthService {
         return new UserDTO.AuthResponse(token, userResponse);
     }
 
-    @Transactional(readOnly = true)
+    // Убрал @Transactional(readOnly = true) - используем классовый @Transactional
     public User getCurrentUser(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
+    @Transactional
     public void changePassword(String username, String currentPassword, String newPassword) {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found"));

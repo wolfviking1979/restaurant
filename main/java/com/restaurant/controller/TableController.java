@@ -1,7 +1,7 @@
 package com.restaurant.controller;
 
 import com.restaurant.DTO.CommonDTO;
-import com.restaurant.model.RestaurantTable;
+import com.restaurant.entity.RestaurantTable;
 import com.restaurant.service.TableService;
 import jakarta.validation.Valid;
 import org.springframework.format.annotation.DateTimeFormat;

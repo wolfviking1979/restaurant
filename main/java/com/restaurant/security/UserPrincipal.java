@@ -1,6 +1,6 @@
 package com.restaurant.security;
 
-import com.restaurant.model.User;
+import com.restaurant.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

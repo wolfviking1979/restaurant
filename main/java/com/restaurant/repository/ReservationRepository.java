@@ -1,8 +1,8 @@
 package com.restaurant.repository;
 
-import com.restaurant.model.Reservation;
-import com.restaurant.model.RestaurantTable;
-import com.restaurant.model.User;
+import com.restaurant.entity.Reservation;
+import com.restaurant.entity.RestaurantTable;
+import com.restaurant.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -31,16 +31,17 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     List<Reservation> findByReservationDateBetween(@Param("startDate") LocalDate startDate,
                                                    @Param("endDate") LocalDate endDate);
 
+    // Упрощенная версия без полных путей к enum
     @Query("SELECT r FROM Reservation r WHERE r.table.id = :tableId " +
-            "AND r.status IN ('PENDING', 'CONFIRMED') " +
-            "AND (:startTime < FUNCTION('TIMESTAMP', r.reservationDate, r.reservationTime) + r.durationMinutes * 60 " +
-            "AND :endTime > FUNCTION('TIMESTAMP', r.reservationDate, r.reservationTime))")
+            "AND (r.status = 'PENDING' OR r.status = 'CONFIRMED') " +
+            "AND ((:startTime < FUNCTION('TIMESTAMP', r.reservationDate, r.reservationTime) + (r.durationMinutes * 60)) " +
+            "AND (:endTime > FUNCTION('TIMESTAMP', r.reservationDate, r.reservationTime)))")
     List<Reservation> findConflictingReservations(@Param("tableId") Long tableId,
                                                   @Param("startTime") LocalDateTime startTime,
                                                   @Param("endTime") LocalDateTime endTime);
 
     @Query("SELECT r FROM Reservation r WHERE r.reservationDate = :date " +
-            "AND r.status IN ('PENDING', 'CONFIRMED') " +
+            "AND (r.status = 'PENDING' OR r.status = 'CONFIRMED') " +
             "ORDER BY r.reservationTime")
     List<Reservation> findActiveReservationsByDate(@Param("date") LocalDate date);
 
@@ -55,4 +56,11 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
             "ORDER BY COUNT(r) DESC")
     List<Object[]> getPopularTables(@Param("startDate") LocalDate startDate,
                                     @Param("endDate") LocalDate endDate);
+
+    // Дополнительные полезные методы
+    List<Reservation> findByStatusIn(List<Reservation.ReservationStatus> statuses);
+
+    @Query("SELECT r FROM Reservation r WHERE r.reservationDate = :date AND r.table = :table")
+    List<Reservation> findByDateAndTable(@Param("date") LocalDate date,
+                                         @Param("table") RestaurantTable table);
 }

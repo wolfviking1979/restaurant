@@ -1,9 +1,9 @@
 package com.restaurant.service;
 
 import com.restaurant.DTO.ReservationDTO;
-import com.restaurant.model.Reservation;
-import com.restaurant.model.RestaurantTable;
-import com.restaurant.model.User;
+import com.restaurant.entity.Reservation;
+import com.restaurant.entity.RestaurantTable;
+import com.restaurant.entity.User;
 import com.restaurant.repository.ReservationRepository;
 import com.restaurant.repository.RestaurantTableRepository;
 import com.restaurant.repository.UserRepository;

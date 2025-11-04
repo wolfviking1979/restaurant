@@ -1,6 +1,6 @@
 package com.restaurant.repository;
 
-import com.restaurant.model.UserRole;
+import com.restaurant.entity.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

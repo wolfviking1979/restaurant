@@ -1,7 +1,6 @@
 package com.restaurant.exception;
 
 import com.restaurant.DTO.CommonDTO;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -11,7 +10,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -20,7 +21,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<CommonDTO.ApiResponse<String>> handleRuntimeException(RuntimeException ex) {
-        logger.error("RuntimeException: {}", ex.getMessage(), ex);
+        logger.error("RuntimeException occurred: {}", ex.getMessage(), ex);
+        // Используем error с одним параметром
         return ResponseEntity.badRequest()
                 .body(CommonDTO.ApiResponse.error(ex.getMessage()));
     }
@@ -28,6 +30,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<CommonDTO.ApiResponse<String>> handleAccessDeniedException(AccessDeniedException ex) {
         logger.warn("AccessDeniedException: {}", ex.getMessage());
+        // Используем error с одним параметром
         return ResponseEntity.status(HttpStatus.FORBIDDEN)
                 .body(CommonDTO.ApiResponse.error("Access denied"));
     }
@@ -40,13 +43,16 @@ public class GlobalExceptionHandler {
                 errors.put(error.getField(), error.getDefaultMessage())
         );
 
+        logger.warn("Validation failed: {}", errors);
+        // Используем error с двумя параметрами (message и data)
         return ResponseEntity.badRequest()
                 .body(CommonDTO.ApiResponse.error("Validation failed", errors));
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<CommonDTO.ApiResponse<String>> handleGlobalException(Exception ex) {
-        logger.error("Unexpected error: {}", ex.getMessage(), ex);
+        logger.error("Unexpected error occurred: {}", ex.getMessage(), ex);
+        // Используем error с одним параметром
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(CommonDTO.ApiResponse.error("An unexpected error occurred"));
     }

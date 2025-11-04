@@ -1,7 +1,7 @@
 package com.restaurant.repository;
 
-import com.restaurant.model.Order;
-import com.restaurant.model.Payment;
+import com.restaurant.entity.Order;
+import com.restaurant.entity.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

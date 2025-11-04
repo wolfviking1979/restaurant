@@ -1,6 +1,6 @@
 package com.restaurant.service;
 
-import com.restaurant.model.*;
+import com.restaurant.entity.*;
 import com.restaurant.repository.DishRecipeRepository;
 import com.restaurant.repository.IngredientRepository;
 import com.restaurant.repository.StockMovementRepository;

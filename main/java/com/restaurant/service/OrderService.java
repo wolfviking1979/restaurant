@@ -1,7 +1,7 @@
 package com.restaurant.service;
 
 import com.restaurant.DTO.OrderDTO;
-import com.restaurant.model.*;
+import com.restaurant.entity.*;
 import com.restaurant.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

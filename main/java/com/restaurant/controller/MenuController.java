@@ -2,7 +2,7 @@ package com.restaurant.controller;
 
 import com.restaurant.DTO.CommonDTO;
 import com.restaurant.DTO.MenuDTO;
-import com.restaurant.model.MenuCategory;
+import com.restaurant.entity.MenuCategory;
 import com.restaurant.repository.MenuCategoryRepository;
 import com.restaurant.service.MenuService;
 import jakarta.validation.Valid;

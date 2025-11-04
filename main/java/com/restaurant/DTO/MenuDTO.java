@@ -1,6 +1,6 @@
 package com.restaurant.DTO;
 
-import com.restaurant.model.Dish;
+import com.restaurant.entity.Dish;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

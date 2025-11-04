@@ -1,7 +1,7 @@
 package com.restaurant.DTO;
 
-import com.restaurant.model.Order;
-import com.restaurant.model.OrderItem;
+import com.restaurant.entity.Order;
+import com.restaurant.entity.OrderItem;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

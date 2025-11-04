@@ -1,6 +1,6 @@
 package com.restaurant.DTO;
 
-import com.restaurant.model.Reservation;
+import com.restaurant.entity.Reservation;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
