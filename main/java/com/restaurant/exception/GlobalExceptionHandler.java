@@ -1,6 +1,6 @@
 package com.restaurant.exception;
 
-import com.restaurant.DTO.CommonDTO;
+import com.restaurant.dto.CommonDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;

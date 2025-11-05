@@ -1,6 +1,6 @@
 package com.restaurant.service;
 
-import com.restaurant.DTO.MenuDTO;
+import com.restaurant.dto.MenuDTO;
 import com.restaurant.entity.Dish;
 import com.restaurant.entity.MenuCategory;
 import com.restaurant.repository.DishRepository;

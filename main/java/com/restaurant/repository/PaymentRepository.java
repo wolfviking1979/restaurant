@@ -33,4 +33,12 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
             "GROUP BY p.paymentMethod")
     List<Object[]> getRevenueByPaymentMethodBetween(@Param("start") LocalDateTime start,
                                                     @Param("end") LocalDateTime end);
+
+    @Query("SELECT p FROM Payment p WHERE p.order.id = :orderId AND p.paymentStatus = 'PAID'")
+    List<Payment> findSuccessfulPaymentsByOrder(@Param("orderId") Long orderId);
+
+    // ДОБАВЛЯЕМ НЕДОСТАЮЩИЙ МЕТОД
+    @Query("SELECT COUNT(p) FROM Payment p WHERE p.paymentStatus = 'PAID' AND p.createdAt BETWEEN :start AND :end")
+    Long countSuccessfulPaymentsBetween(@Param("start") LocalDateTime start,
+                                        @Param("end") LocalDateTime end);
 }

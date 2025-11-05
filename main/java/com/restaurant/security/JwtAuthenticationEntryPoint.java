@@ -1,7 +1,7 @@
 package com.restaurant.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.restaurant.DTO.CommonDTO;
+import com.restaurant.dto.CommonDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;

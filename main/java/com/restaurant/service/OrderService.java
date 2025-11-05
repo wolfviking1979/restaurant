@@ -1,6 +1,6 @@
 package com.restaurant.service;
 
-import com.restaurant.DTO.OrderDTO;
+import com.restaurant.dto.OrderDTO;
 import com.restaurant.entity.*;
 import com.restaurant.repository.*;
 import jakarta.transaction.Transactional;

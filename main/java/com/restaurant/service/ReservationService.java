@@ -1,6 +1,6 @@
 package com.restaurant.service;
 
-import com.restaurant.DTO.ReservationDTO;
+import com.restaurant.dto.ReservationDTO;
 import com.restaurant.entity.Reservation;
 import com.restaurant.entity.RestaurantTable;
 import com.restaurant.entity.User;

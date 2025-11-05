@@ -1,4 +1,4 @@
-package com.restaurant.DTO;
+package com.restaurant.dto;
 
 import com.restaurant.entity.Dish;
 import jakarta.validation.constraints.DecimalMin;

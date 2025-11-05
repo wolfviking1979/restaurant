@@ -1,6 +1,6 @@
 package com.restaurant.controller;
 
-import com.restaurant.DTO.CommonDTO;
+import com.restaurant.dto.CommonDTO;
 import com.restaurant.entity.RestaurantTable;
 import com.restaurant.service.TableService;
 import jakarta.validation.Valid;

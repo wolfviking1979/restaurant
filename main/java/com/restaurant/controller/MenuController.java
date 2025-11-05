@@ -1,7 +1,7 @@
 package com.restaurant.controller;
 
-import com.restaurant.DTO.CommonDTO;
-import com.restaurant.DTO.MenuDTO;
+import com.restaurant.dto.CommonDTO;
+import com.restaurant.dto.MenuDTO;
 import com.restaurant.entity.MenuCategory;
 import com.restaurant.repository.MenuCategoryRepository;
 import com.restaurant.service.MenuService;

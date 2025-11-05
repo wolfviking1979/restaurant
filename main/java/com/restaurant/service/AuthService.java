@@ -1,6 +1,6 @@
 package com.restaurant.service;
 
-import com.restaurant.DTO.UserDTO;
+import com.restaurant.dto.UserDTO;
 import com.restaurant.entity.User;
 import com.restaurant.repository.UserRepository;
 import com.restaurant.security.JwtTokenProvider;

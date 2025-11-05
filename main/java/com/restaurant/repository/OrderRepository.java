@@ -36,4 +36,13 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("SELECT COUNT(o) FROM Order o WHERE o.status.statusName = 'оплачен' AND o.createdAt BETWEEN :start AND :end")
     Long countPaidOrdersBetween(@Param("start") LocalDateTime start,
                                 @Param("end") LocalDateTime end);
+
+    // ДОБАВЛЯЕМ НЕДОСТАЮЩИЙ МЕТОД
+    @Query("SELECT o FROM Order o WHERE o.waiter.id = :waiterId AND o.createdAt BETWEEN :start AND :end")
+    List<Order> findByWaiterAndPeriod(@Param("waiterId") Long waiterId,
+                                      @Param("start") LocalDateTime start,
+                                      @Param("end") LocalDateTime end);
+
+    @Query("SELECT o FROM Order o WHERE o.table.id = :tableId AND o.status.statusName != 'оплачен'")
+    List<Order> findActiveOrdersByTable(@Param("tableId") Long tableId);
 }

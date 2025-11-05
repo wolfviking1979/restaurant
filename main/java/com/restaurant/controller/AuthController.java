@@ -1,7 +1,7 @@
 package com.restaurant.controller;
 
-import com.restaurant.DTO.CommonDTO;
-import com.restaurant.DTO.UserDTO;
+import com.restaurant.dto.CommonDTO;
+import com.restaurant.dto.UserDTO;
 import com.restaurant.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
